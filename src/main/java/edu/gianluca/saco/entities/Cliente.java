@@ -5,6 +5,7 @@ import edu.gianluca.saco.types.CategoriaCliente;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,8 @@ public class Cliente {
     private Pessoa pessoa;
     
     @NotBlank
-    private CategoriaCliente cc;
+    @Column(name = "categoria_cliente")
+    private CategoriaCliente categoria;
 
     @OneToMany(
         mappedBy = "post",
@@ -54,11 +56,11 @@ public class Cliente {
     }
 
     public CategoriaCliente getCc() {
-        return this.cc;
+        return this.categoria;
     }
 
-    public void setCc(CategoriaCliente cc) {
-        this.cc = cc;
+    public void setCategoria(CategoriaCliente categoria) {
+        this.categoria = categoria;
     }
 
     public void addOrdem(OrdemServico o){

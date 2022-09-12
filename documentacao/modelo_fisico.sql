@@ -23,7 +23,7 @@ CREATE TABLE public.Pessoa (
 );
 
 
-CREATE TYPE categoria_cliente AS ENUM ('Esporádico', 'Especial', 'Mal_Pagador', 'Devedor');
+CREATE TYPE categoria_cliente AS ENUM ('Esporadico', 'Especial', 'Mal_Pagador', 'Devedor');
 
 CREATE TABLE public.Cliente(
 	codigo serial NOT NULL,
@@ -143,7 +143,7 @@ CREATE TABLE public.Ordem_Servico (
 );
 
 
-CREATE TYPE forma_pagamento AS ENUM ('débito', 'crédito', 'pix', 'dinheiro');
+CREATE TYPE forma_pagamento AS ENUM ('Credito', 'Debito', 'Dinheiro', 'PIX');
 
 
 CREATE TABLE public.Pagamento (
@@ -198,7 +198,7 @@ CREATE TABLE public.Agendamento (
 );
 
 
-CREATE TYPE tipo_mensagem AS ENUM ('atendimento iniciado','rejeitar atendimento', 'aceitar atendimento', 'atendimento finalizado', 'chegou ao local', 'não foi possível iniciar atendimento');
+CREATE TYPE tipo_mensagem AS ENUM ('Iniciado','Rejeitado', 'Aceito', 'Finalizado', 'No_Local', 'Impossivel_Iniciar');
 
 
 CREATE TABLE public.Mensagem_Terminal (

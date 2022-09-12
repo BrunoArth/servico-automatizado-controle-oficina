@@ -7,11 +7,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="categoria_cliente")
-public class CategoriaCliente{
+public class TipoMensagem{
 
-    public static enum categoria{Esporádico, Especial, Mal_Pagador, Devedor};
+    public static enum mensagem{Iniciado, Rejeitado, Aceito, Finalizado, No_Local, Impossivel_Iniciar};
 
     @Enumerated(EnumType.STRING)
-    CategoriaCliente categoria;
+    CategoriaCliente mensagem;
 
 }
