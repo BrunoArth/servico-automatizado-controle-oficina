@@ -32,9 +32,13 @@ public class Pessoa{
     )
     private List<Veiculo> veiculos;
 
-    @OneToMany
-    @JoinColumn(name="endereco_codigo")
-    private Endereco endereco;
+    @ManyToMany
+    @JoinTable(
+        name = "Pessoa_Veiculo", 
+        joinColumns = { @JoinColumn(name = "pessoa_cpf") }, 
+        inverseJoinColumns = { @JoinColumn(name = "endereco_codigo") }
+    )
+    private List<Endereco> enderecos;
 
     public String getCpf() {
         return this.cpf;
@@ -76,12 +80,12 @@ public class Pessoa{
         this.telefone = telefone;
     }
 
-    public Endereco getEndereco() {
-        return this.endereco;
+    public void addEndereco(Endereco e) {
+        this.enderecos.add(e);
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void removeEndereco(Endereco e) {
+        this.enderecos.remove(e);
     }
 
     public void addVeiculo(Veiculo v){

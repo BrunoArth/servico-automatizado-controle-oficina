@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,11 +31,12 @@ public class Cliente {
     private Pessoa pessoa;
     
     @NotBlank
+    @Enumerated(EnumType.STRING)
     @Column(name = "categoria_cliente")
     private CategoriaCliente categoria;
 
     @OneToMany(
-        mappedBy = "post",
+        mappedBy = "cliente",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )

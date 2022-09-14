@@ -3,13 +3,18 @@ package edu.gianluca.saco.entities;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -23,12 +28,10 @@ public class OrdemServico {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codigo;
     
-    @OneToOne
-    @JoinColumn(name="placa_veiculo")
+    @ManyToOne
     private Veiculo veiculo;
 
-    @OneToOne
-    @JoinColumn(name="codigo_cliente")
+    @ManyToOne
     private Cliente cliente;
     
     @OneToOne
@@ -36,7 +39,8 @@ public class OrdemServico {
     private Funcionario supervisor;
 
     @NotBlank
-    private StatusGeral status;
+    @Enumerated(EnumType.STRING)
+    private StatusGeral situacao;
 
     @NotBlank
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
@@ -48,6 +52,13 @@ public class OrdemServico {
 
     @NotBlank
     private float custoTotal;
+
+    @OneToMany
+    @JoinColumn(name="codigo_ordem_servico")
+    private List<Pagamento> pagamentos;
+
+    @OneToMany
+    private List<Realizacao> realizacoes;
 
     public Long getCodigo() {
         return this.codigo;
@@ -82,11 +93,11 @@ public class OrdemServico {
     }
 
     public StatusGeral getStatus() {
-        return this.status;
+        return this.situacao;
     }
 
     public void setStatus(StatusGeral status) {
-        this.status = status;
+        this.situacao = status;
     }
 
     public LocalDate getDataEntrada() {
@@ -111,6 +122,14 @@ public class OrdemServico {
 
     public void setCustoTotal(float custoTotal) {
         this.custoTotal = custoTotal;
+    }
+
+    public void addPagamento(Pagamento p){
+        this.pagamentos.add(p);
+    }
+
+    public void removePagamento(Pagamento p){
+        this.pagamentos.remove(p);
     }
 
 }

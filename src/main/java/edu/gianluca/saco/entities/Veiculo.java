@@ -25,7 +25,7 @@ public class Veiculo{
     private List<Pessoa> proprietario;
 
     @OneToMany(
-        mappedBy = "post",
+        mappedBy = "veiculo",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )

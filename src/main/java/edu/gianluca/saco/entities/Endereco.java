@@ -6,9 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="Endereco")
@@ -18,27 +19,27 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codigo;
     
-    @NotNull
+    @NotBlank
     private String logradouro;
     
     private int numero;
     
     private String complemento;
     
-    @NotNull
+    @NotBlank
     private String bairro;
     
-    @NotNull
+    @NotBlank
     private String cidade;
     
-    @NotNull
+    @NotBlank
     private String estado;
     
     private float latitude;
     
     private float longitude;
 
-    @ManyToOne
+    @ManyToMany(mappedBy = "enderecos")
     private List<Pessoa> moradores;
 
     public Long getCodigo() {
