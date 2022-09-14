@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,6 +36,14 @@ public class Cliente {
     @Enumerated(EnumType.STRING)
     @Column(name = "categoria_cliente")
     private CategoriaCliente categoria;
+
+    @ManyToMany
+    @JoinTable(
+        name = "Pessoa_Veiculo", 
+        joinColumns = { @JoinColumn(name = "codigo_ cliente") }, 
+        inverseJoinColumns = { @JoinColumn(name = "placa_veiculo") }
+    )
+    private List<Veiculo> veiculos;
 
     @OneToMany(
         mappedBy = "cliente",
@@ -72,6 +82,14 @@ public class Cliente {
 
     public void removeOrdem(OrdemServico o){
         ordens.remove(o);
+    }
+
+    public void addVeiculo(Veiculo v){
+        this.veiculos.add(v);
+    }
+    
+    public void removeVeiculo(Veiculo v){
+        this.veiculos.remove(v);
     }
 
 }

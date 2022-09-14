@@ -89,8 +89,8 @@ CREATE TABLE public.Veiculo (
 );
 
 
-CREATE TABLE public.Pessoa_Veiculo (
-	cpf_pessoa varchar(11) NOT NULL,
+CREATE TABLE public.Cliente_Veiculo (
+	codigo_cliente varchar(11) NOT NULL,
 	placa_veiculo varchar(7) NOT NULL
 ) WITH (
   OIDS=FALSE
@@ -219,8 +219,8 @@ ALTER TABLE Pessoa_Endereco ADD CONSTRAINT Pessoa_Endereco_fk1 FOREIGN KEY (pess
 
 ALTER TABLE Funcionario ADD CONSTRAINT Funcionario_fk0 FOREIGN KEY (cpf_pessoa) REFERENCES Pessoa(cpf);
 
-ALTER TABLE Pessoa_Veiculo ADD CONSTRAINT Pessoa_Veiculo_fk0 FOREIGN KEY (cpf_pessoa) REFERENCES Pessoa(cpf);
-ALTER TABLE Pessoa_Veiculo ADD CONSTRAINT Pessoa_Veiculo_fk1 FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa);
+ALTER TABLE Cliente_Veiculo ADD CONSTRAINT Cliente_Veiculo_fk0 FOREIGN KEY (codigo_cliente) REFERENCES Cliente(codigo);
+ALTER TABLE Cliente_Veiculo ADD CONSTRAINT Cliente_Veiculo_fk1 FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa);
 
 ALTER TABLE Ordem_Servico ADD CONSTRAINT Ordem_Servico_fk0 FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa);
 ALTER TABLE Ordem_Servico ADD CONSTRAINT Ordem_Servico_fk1 FOREIGN KEY (codigo_cliente) REFERENCES Cliente(codigo);

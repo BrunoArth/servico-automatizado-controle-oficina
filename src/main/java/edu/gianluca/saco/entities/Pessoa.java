@@ -27,14 +27,6 @@ public class Pessoa{
     @ManyToMany
     @JoinTable(
         name = "Pessoa_Veiculo", 
-        joinColumns = { @JoinColumn(name = "cpf_pessoa") }, 
-        inverseJoinColumns = { @JoinColumn(name = "placa_veiculo") }
-    )
-    private List<Veiculo> veiculos;
-
-    @ManyToMany
-    @JoinTable(
-        name = "Pessoa_Veiculo", 
         joinColumns = { @JoinColumn(name = "pessoa_cpf") }, 
         inverseJoinColumns = { @JoinColumn(name = "endereco_codigo") }
     )
@@ -86,14 +78,6 @@ public class Pessoa{
 
     public void removeEndereco(Endereco e) {
         this.enderecos.remove(e);
-    }
-
-    public void addVeiculo(Veiculo v){
-        veiculos.add(v);
-    }
-    
-    public void removeVeiculo(Veiculo v){
-        veiculos.remove(v);
     }
 
 }
