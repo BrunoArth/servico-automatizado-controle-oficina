@@ -22,7 +22,7 @@ public class Veiculo{
     private int ano;
 
     @ManyToMany(mappedBy = "veiculos")
-    private List<Pessoa> proprietario;
+    private List<Cliente> proprietario;
 
     @OneToMany(
         mappedBy = "veiculo",
@@ -63,12 +63,12 @@ public class Veiculo{
         this.ano = ano;
     }
 
-    public List<Pessoa> getProprietario() {
-        return this.proprietario;
+    public void addProprietario(Cliente c) {
+        this.proprietario.add(c);
     }
 
-    public void setProprietario(List<Pessoa> proprietario) {
-        this.proprietario = proprietario;
+    public void removeProprietario(Cliente c) {
+        this.proprietario.remove(c);
     }
 
     public List<OrdemServico> getOrdens() {
