@@ -52,6 +52,13 @@ public class Cliente {
     )
     private List<OrdemServico> ordens;
 
+    @OneToMany(
+        mappedBy = "cliente",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<Agendamento> agendamentos;
+
     public Long getCodigo() {
         return this.codigo;
     }
@@ -77,11 +84,11 @@ public class Cliente {
     }
 
     public void addOrdem(OrdemServico o){
-        ordens.add(o);
+        this.ordens.add(o);
     }
 
     public void removeOrdem(OrdemServico o){
-        ordens.remove(o);
+        this.ordens.remove(o);
     }
 
     public void addVeiculo(Veiculo v){
@@ -90,6 +97,14 @@ public class Cliente {
     
     public void removeVeiculo(Veiculo v){
         this.veiculos.remove(v);
+    }
+
+    public void addAgendamento(Agendamento a){
+        this.agendamentos.add(a);
+    }
+
+    public void removeAgendamento(Agendamento a){
+        this.agendamentos.remove(a);
     }
 
 }
