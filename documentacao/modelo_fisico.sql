@@ -175,10 +175,12 @@ CREATE TABLE public.Atividades_Realizadas (
 
 CREATE TABLE public.Unidade_Movel (
 	placa_veiculo varchar(7) NOT NULL,
-	id_motorista integer NOT NULL,
-	id_atendente integer NOT NULL,
+	codigo_motorista integer NOT NULL,
+	codigo_atendente integer NOT NULL,
 	CONSTRAINT Unidade_Movel_pk PRIMARY KEY (placa_veiculo),
-	CONSTRAINT Unidade_Movel_fk0 FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa)
+	CONSTRAINT Unidade_Movel_fk0 FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa),
+	CONSTRAINT Unidade_Movel_fk1 FOREIGN KEY (codigo_motorista) REFERENCES Funcionario(codigo),
+	CONSTRAINT Unidade_Movel_fk2 FOREIGN KEY (codigo_atendente) REFERENCES Funcionario(codigo)
 ) WITH (
   OIDS=FALSE
 );
@@ -188,7 +190,7 @@ CREATE TABLE public.Agendamento (
 	codigo serial NOT NULL,
 	codigo_cliente integer NOT NULL,
 	placa_veiculo varchar(7) NOT NULL,
-	id_endereco integer NOT NULL,
+	codigo_endereco integer NOT NULL,
 	data_hora TIMESTAMP NOT NULL,
 	situacao status_geral NOT NULL DEFAULT 'espera',
 	CONSTRAINT Agendamento_pk PRIMARY KEY (codigo),
@@ -208,7 +210,8 @@ CREATE TABLE public.Mensagem_Terminal (
 	data_hora TIMESTAMP NOT NULL,
 	latitude FLOAT(8) NOT NULL,
 	longitude FLOAT(8) NOT NULL,
-	CONSTRAINT Codigo_Mensagem_pk PRIMARY KEY (codigo)
+	CONSTRAINT Codigo_Mensagem_pk PRIMARY KEY (codigo),
+	CONSTRAINT Codigo_Mensagem_fk0 FOREIGN KEY (placa_unidade_movel) REFERENCES Veiculo(placa)
 ) WITH (
   OIDS=FALSE
 );
@@ -236,6 +239,6 @@ ALTER TABLE Atividades_Realizadas ADD CONSTRAINT Atividades_Realizadas_fk3 FOREI
 
 ALTER TABLE Agendamento ADD CONSTRAINT Agendamento_fk0 FOREIGN KEY (codigo_cliente) REFERENCES Cliente(codigo);
 ALTER TABLE Agendamento ADD CONSTRAINT Agendamento_fk1 FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa);
-ALTER TABLE Agendamento ADD CONSTRAINT Agendamento_fk2 FOREIGN KEY (id_endereco) REFERENCES Endereco(codigo);
+ALTER TABLE Agendamento ADD CONSTRAINT Agendamento_fk2 FOREIGN KEY (codigo_endereco) REFERENCES Endereco(codigo);
 
 SET TIMEZONE TO 'America/Sao_Paulo';
