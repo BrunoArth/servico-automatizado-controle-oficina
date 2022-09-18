@@ -170,3 +170,34 @@ input[type="submit"]:hover{
     text-align: center;
 }
 
+.consulta{
+    background-color: white;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px 1px;
+    margin-top: 5vh;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+input[type="submit"].consultar{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+    align-content: center;
+    width: 200px;
+    margin-left: 40%;
+}
+input[type="submit"]:hover{
+    color: black;
+    background-color: aqua;
+    transition: .5s;
+
+}
