@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>SITE SACO</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0" >
+    </head>
+    <body>
+        <header>
+            <div class="center">
+                <div class="logo" href="index.html"><img src="../../images/logo.png">
+                </div>
+                    <div class="menu">
+                        <a href="index.html">Clientes</a>
+                        <a href="funcionarios.html">Funcionarios</a>
+                        <a href="#">Consultas</a>
+                        <a href="#">Serviços</a>
+                        <a href="informacoes.html">Informações</a>
+                        <a href="login.html" id="sair">Sair</a>
+                    </div>
+            </div>
+            <div class="tabela">
+                <table class="tabela_funcionarios">
+                    
+                    <thead>
+                        <div name="nome">Lista de Funcionarios</div>
+                        <tr>
+                            <td>Id</td>
+                            <td>Nome</td>
+                            <td>CPF</td>
+                            <td>RG</td>
+                            <td>Admissão</td>
+                            <td>Salário</td>
+                            <td>Especialidade</td>
+                            <td>-</td>
+                        </tr>
+                    </thead>
+                    <tbody>       
+                        <tr>
+                            <td>campo</td>
+                            <td>campo</td>
+                            <td>campo</td>
+                            <td>campo</td>
+                            <td>campo</td>
+                            <td>campo</td>
+                            <td>campo</td>
+                            <td width="100">
+                                <a href="/apagarFuncionario/{{row[0]}}" class="botao_excluir">Excluir</a>    
+                            </td>
+                        </tr>        
+                    </tbody>
+                </table>
+            </div>
+        </header>
+    </body>
+</html>

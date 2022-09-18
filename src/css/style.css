@@ -40,7 +40,18 @@ header{
     font-weight: bold;
     margin-right: 15px;
 }
+
+.menu a:hover{
+    color: gray;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
 #sair{
+    color: #8B0000;
+}
+#sair:hover{
     color: red;
 }
 textarea:focus, input:focus{
@@ -98,39 +109,64 @@ input[type="submit"]{
     border: none;
     border-radius: 20px;
     color: white;
-    background-color: aqua;
+    background-color: blue;
     cursor: pointer;
 }
 
-input[type="submit"]{
-    background-color: blue;
+input[type="submit"]:hover{
+    color: black;
+    background-color: aqua;
     transition: .5s;
 
 }
-
 .formulario{
-    position: absolute;
-    top: 15%;
-    left: 25%;
-    border-radius: 15px;
     background-color: white;
-    width: 700px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px 30px;
-    margin-top: 0vh;
+    padding: 10px 30px;
+    margin-top: 5vh;
+    border-radius: 10px;
     text-align: center;
 }
 
-button{
-    background-color: pink;
-    border: none;
-    padding: 15px;
-    width: 100%;
+.nome{
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+.tabela{
+    background-color: white;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 30px;
+    margin-top: 5vh;
     border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+} 
+
+.tabela_funcionarios{
+    background-color: white;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px 1px;
+    margin-top: 5vh;
+    border-radius: 10px;
+    text-align: center;
 }
 
-button:hover{
-    background-color: palevioletred;
-    cursor: pointer;
+.tabela_funcionarios thead tr{
+    background-color: aqua;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
 }
+
+.tabela_funcionarios tbody tr{
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+

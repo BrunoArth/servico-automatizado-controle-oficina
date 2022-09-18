@@ -11,10 +11,10 @@
                 </div>
                     <div class="menu">
                         <a href="index.html">Clientes</a>
-                        <a href="#">Funcionarios</a>
+                        <a href="funcionarios.html">Funcionarios</a>
                         <a href="#">Consultas</a>
                         <a href="#">Serviços</a>
-                        <a href="#">Informações</a>
+                        <a href="informacoes.html">Informações</a>
                         <a href="login.html" id="sair">Sair</a>
                     </div>
             </div>
@@ -23,24 +23,23 @@
                     <form action="{{url_for('add_cliente')}}" method="POST">
                         <div class ="nome">Adicionar Cliente</div><br><br>
                         <div class ="formulario_campo">
-                                <input type="text" class="formulario_controle" name="nome_cliente" placeholder="Nome Completo"><br><br>
+                                <input type="text" class="formulario_controle" name="nome_cliente" placeholder="Nome Completo">
                         </div>
                         <div class ="formulario_campo">
-                            <input type="text" class="formulario_controle" name="endereco_cliente" placeholder="Endereço"><br><br>
+                            <input type="text" class="formulario_controle" name="endereco_cliente" placeholder="Endereço">
+                        <div class ="formulario_campo">
+                            <input type="text" class="formulario_controle" name="cpf_cnpj_cliente" placeholder="CPF/CNPJ">
                         </div>
                         <div class ="formulario_campo">
-                            <input type="number" class="formulario_controle" name="cpf_cnpj_cliente" placeholder="CPF/CNPJ"><br><br>
+                            <input type="text" class="formulario_controle" name="rg_cliente" placeholder="RG">
                         </div>
                         <div class ="formulario_campo">
-                            <input type="number" class="formulario_controle" name="rg_cliente" placeholder="RG"><br><br>
+                            <input type="text" class="formulario_controle" name="telefone_produto" placeholder="Telefone">
                         </div>
                         <div class ="formulario_campo">
-                            <input type="number" class="formulario_controle" name="telefone_produto" placeholder="Telefone"><br><br>
+                            <input type="text" class="formulario_controle" name="celular_produto" placeholder="Celular">
                         </div>
-                        <div class ="formulario_campo">
-                            <input type="number" class="formulario_controle" name="celular_produto" placeholder="Celular"><br><br>
-                        </div>
-                        <button class="botao_salvar">Incluir</button>
+                        <div><input type="submit" value="Incluir"></div>
                     </form>
                 </div>     
             </div>
